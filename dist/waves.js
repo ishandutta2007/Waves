@@ -445,7 +445,62 @@
             }
         }
     }
-
+    
+    
+    /**
+     * The dragging ripple effect.
+     * Only works with mouse events for the time being.
+     */
+    var lastDrag    = new Date();
+    var lastCoord   = {
+        x: 0, 
+        y: 0
+    };
+    
+    function dragEffect(e) {
+        
+        if (!TouchHandler.allowEvent(e)) {
+            return;
+        }
+        
+        var element = getWavesEffectElement(e);
+        
+        if (lastDrag.getTime() < (e.timeStamp - 200) || allowRipple(element)) {
+            
+            lastDrag    = new Date();
+            lastCoord   = {x: e.x, y: e.y};
+            
+            var velocity = null;
+            
+            if (e.movementX || e.movementY) {
+                velocity = {
+                    x: e.movementX, 
+                    y: e.movementY
+                };
+            }
+            
+            Effect.show(e, element, velocity);
+            Effect.hide(e, element);
+        }
+        
+        function allowRipple(element) {
+            
+            var v = {
+                x: e.x - lastCoord.x, 
+                y: e.y - lastCoord.y
+            };
+            
+            return (Math.max(element.clientWidth, element.clientTop) / 7) < magnitude(v);
+        }
+        
+        function magnitude(coord) {
+            return Math.sqrt(Math.pow(coord.x, 2) + Math.pow(coord.y, 2));
+        }
+    }
+    
+    /**
+     * Init function
+     */
     Waves.init = function(options) {
         var body = document.body;
 
@@ -470,11 +525,22 @@
 
 
     /**
-     * Attach Waves to dynamically loaded inputs, or add .waves-effect and other
-     * waves classes to a set of elements. Set drag to true if the ripple mouseover
-     * or skimming effect should be applied to the elements.
+     * Attach Waves to dynamically loaded inputs with options
      */
-    Waves.attach = function(elements, classes) {
+    Waves.attach = function(elements, options) {
+        
+        var classes = '',
+            drag = false;
+        
+        options = options || {};
+        
+        if ('classes' in options) {
+            classes = options.classes;
+        }
+        
+        if ('drag' in options) {
+            drag = options.drag;
+        }
 
         elements = getWavesElements(elements);
 
@@ -498,6 +564,10 @@
 
             if (element.className.indexOf('waves-effect') === -1) {
                 element.className += ' waves-effect' + classes;
+            }
+            
+            if (drag) {
+                element.addEventListener('mouseenter', dragEffect, false);
             }
         }
     };
