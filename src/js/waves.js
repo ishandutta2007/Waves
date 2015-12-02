@@ -457,7 +457,7 @@
         y: 0
     };
     
-    function dragEffect(e) {
+    function hoverEffect(e) {
         
         if (!TouchHandler.allowEvent(e)) {
             return;
@@ -530,7 +530,7 @@
     Waves.attach = function(elements, options) {
         
         var classes = '',
-            drag = false;
+            hover = false;
         
         // Backward compatibility for < 0.7.4
         if (
@@ -548,8 +548,8 @@
             classes = options.classes;
         }
         
-        if ('drag' in options) {
-            drag = options.drag;
+        if ('hover' in options) {
+            hover = options.hover;
         }
 
         elements = getWavesElements(elements);
@@ -576,8 +576,8 @@
                 element.className += ' waves-effect' + classes;
             }
             
-            if (drag) {
-                element.addEventListener('mouseenter', dragEffect, false);
+            if (hover) {
+                element.addEventListener('mouseenter', hoverEffect, false);
             }
         }
     };
