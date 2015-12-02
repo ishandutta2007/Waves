@@ -532,6 +532,16 @@
         var classes = '',
             drag = false;
         
+        // Backward compatibility for < 0.7.4
+        if (
+            toString.call(options) === '[object Array]' || 
+            toString.call(options) === '[object String]'
+        ) {
+            options = {
+                classes: options
+            };
+        }
+        
         options = options || {};
         
         if ('classes' in options) {
