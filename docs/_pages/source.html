@@ -100,6 +100,31 @@
 {{/code}}
                     </div>
                 </div>
+                
+                <div id="code-hover" class="hide code">
+                    <h2>Ripple on Hover</h2>
+                    <div class="wrapper">
+{{#code class="lang-markup"}}
+<style>
+    #hover-button {
+        background: #04d654;
+        color: #fff;
+    }
+</style>
+
+<p class="text-center">
+    <button id="hover-button">Hover</button>
+</p>
+
+<script type="text/javascript">
+    Waves.attach('#hover-button', {
+        classes: ['waves-button', 'waves-float'],
+        hover: true
+    });
+</script>
+{{/code}}
+                    </div>
+                </div>
 
                 <div id="code-action" class="hide code">
                     <h2>Action/Event</h2>

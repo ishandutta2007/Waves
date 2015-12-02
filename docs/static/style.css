@@ -392,8 +392,12 @@ ul li {
     height: auto;
 }
 
-#example #box-action {
+#example #box-hover {
     top: 1200px;
+}
+
+#example #box-action {
+    top: 1450px;
     left: 100%;
     margin-bottom: 40px;
 }
@@ -580,6 +584,7 @@ hr {
         font-size: 40px;
     }
     
+    #example .box,
     #example.show .box {
         width: 400px !important;
         left: 50% !important;
@@ -613,13 +618,21 @@ hr {
     #example #box-other .boxes {
         width: 125px;
     }
+    
+    #example #box-hover {
+        top: -200px;
+    }
+    
+    #example.show #box-hover {
+        top: 1060px;
+    }
 
     #example #box-action {
         top: -200px;
     }
 
     #example.show #box-action {
-        top: 1070px;
+        top: 1280px;
     }
 
     #source-code .box {

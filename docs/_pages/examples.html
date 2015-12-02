@@ -103,6 +103,33 @@
             Image Source: <a href="https://www.flickr.com/photos/aigle_dore/5238554034/" target="_blank">&copy; Moyan Brenn. Flickr</a>
         </p>
     </div>
+    
+    <div id="box-hover" class="box shadow">
+        <h2>Ripple on Hover</h2>
+        <a class="top-button" title="Show Source" data-code="hover">
+            <i class="fa fa-code"></i>
+        </a>
+
+        <p>Makes the ripple when mouse hover the element.</p>
+
+        <style>
+            #hover-button {
+                background: #04d654;
+                color: #fff;
+            }
+        </style>
+
+        <p class="text-center">
+            <button id="hover-button">Hover</button>
+        </p>
+
+        <script type="text/javascript">
+            Waves.attach('#hover-button', {
+                classes: ['waves-button', 'waves-float'],
+                hover: true
+            });
+        </script>
+    </div>
 
     <div id="box-action" class="box shadow">
         <h2>Action/Event</h2>
