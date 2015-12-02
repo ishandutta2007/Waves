@@ -85,7 +85,7 @@ module.exports = function(grunt) {
             docs: {
                 expand: true,
                 cwd: 'dist',
-                src: ['waves.min.css', 'waves.min.js'],
+                src: ['waves.min.css', 'waves.js', 'waves.min.js', 'waves.min.js.map'],
                 dest: 'docs/static'
             }
 		},
