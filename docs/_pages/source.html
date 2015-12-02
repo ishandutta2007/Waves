@@ -31,9 +31,9 @@
 </p>
 
 <script type="text/javascript">
-    Waves.attach('.flat-buttons', ['waves-button']);
-    Waves.attach('.float-buttons', ['waves-button', 'waves-float']);
-    Waves.attach('.float-button-light', ['waves-button', 'waves-float', 'waves-light']);
+    Waves.attach('.flat-buttons', {classes: 'waves-button'});
+    Waves.attach('.float-buttons', {classes: ['waves-button', 'waves-float']});
+    Waves.attach('.float-button-light', {classes: ['waves-button', 'waves-float', 'waves-light']});
 </script>
 {{/code}}
                     </div>
@@ -72,9 +72,9 @@
 </p>
 
 <script type="text/javascript">
-    Waves.attach('.flat-icon', ['waves-circle']);
-    Waves.attach('.float-icon', ['waves-circle', 'waves-float']);
-    Waves.attach('.float-icon-light', ['waves-circle', 'waves-float', 'waves-light']);
+    Waves.attach('.flat-icon', {classes: ['waves-circle']});
+    Waves.attach('.float-icon', {classes: ['waves-circle', 'waves-float']});
+    Waves.attach('.float-icon-light', {classes: ['waves-circle', 'waves-float', 'waves-light']});
 </script>
 {{/code}}
                     </div>
@@ -93,8 +93,8 @@
 </p>
 
 <script type="text/javascript">
-    Waves.attach('.flat-box', ['waves-block']);
-    Waves.attach('.float-box', ['waves-block', 'waves-float']);
+    Waves.attach('.flat-box', {classes: ['waves-block']});
+    Waves.attach('.float-box', {classes: ['waves-block', 'waves-float']});
     Waves.attach('.waves-image');
 </script>
 {{/code}}
@@ -117,7 +117,7 @@
 </p>
                         
 <script type="text/javascript">
-    Waves.attach('#snarl-demo', ['waves-button', 'waves-float']);
+    Waves.attach('#snarl-demo', {classes: ['waves-button', 'waves-float']});
 
     Snarl.setDefaultOptions({
         timeout: 5000

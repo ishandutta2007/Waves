@@ -32,22 +32,40 @@ Waves.init(config);
                 <hr>
                 
                 
-                <h3 class="code-head">Waves.attach(elements, classes)</h3>
+                <h3 class="code-head">Waves.attach(elements, options)</h3>
                 <p>Attach ripple effect by adding <span class="code">.waves-effect</span> to HTML element. Make sure you call <span class="code">Waves.init()</span> to activated the ripple.</p>
                 <p><strong>Arguments</strong></p>
 
                 <ul>
                     <li><span class="code">elements</span> - A string selector, DOM element, or array of DOM elements to add <span class="code">.waves-effect</span> and other <span class="code">classes</span> to.</li>
-                    <li><span class="code">classes</span> - (optional) Waves classes to add to theses elements, for example: <span class="code">'waves-light waves-classic'</span>. Accepts a single string, or array of classes.</li>
+                    <li><span class="code">options</span> - (optional) Additional options for Waves element. 
+                        <ul>
+                            <li><span class="code">classes</span> - Waves classes to add to theses elements, for example: <span class="code">'waves-light waves-classic'</span>. Accepts a single string, or array of classes.</li>
+                            <li><span class="code">hover</span> - Ripple will be triggered when a mouse hover the element. It happens on <span class="code">mouseenter</span> phase</li>
+                        </ul>
+                    </li>
                 </ul>
 
 {{#code class="lang-javascript"}}
-// Adds .waves-effect and .waves-light to <button> elems
-Waves.attach('button', 'waves-light');
+// Adds one class to <button>
+Waves.attach('button', {
+    classes: 'waves-light'
+});
                 
-// Make .box ripple when user moves the mouse over it
-// with no additional classes
-Waves.attach('.box', null);
+// Adds multiple class to <button>
+Waves.attach('button', {
+    classes: 'waves-light waves-float'
+});
+
+// Or
+Waves.attach('button', {
+    classes: ['waves-light', 'waves-float']
+});
+                
+// Make a ripple when mouse hover the element
+Waves.attach('button', {
+    hover: true
+});
 {{/code}}
                 
                 <hr>
