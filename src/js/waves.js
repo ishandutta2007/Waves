@@ -451,6 +451,10 @@
      * The dragging ripple effect.
      * Only works with mouse events for the time being.
      */
+    var Hover = {
+        delay: 200,
+    };
+    
     var lastDrag    = new Date();
     var lastCoord   = {
         x: 0, 
@@ -480,7 +484,10 @@
             }
             
             Effect.show(e, element, velocity);
-            Effect.hide(e, element);
+            
+            setTimeout(function() {
+                Effect.hide(e, element);
+            }, Effect.delay);
         }
         
         function allowRipple(element) {
@@ -496,6 +503,13 @@
         function magnitude(coord) {
             return Math.sqrt(Math.pow(coord.x, 2) + Math.pow(coord.y, 2));
         }
+    }
+    
+    /**
+     * Disable click event
+     */
+    function disableClick(e) {
+        e.stopPropagation();
     }
     
     /**
@@ -530,7 +544,8 @@
     Waves.attach = function(elements, options) {
         
         var classes = '',
-            hover = false;
+            hover = false,
+            click = true;
         
         // Backward compatibility for < 0.7.4
         if (
@@ -550,6 +565,10 @@
         
         if ('hover' in options) {
             hover = options.hover;
+        }
+        
+        if ('click' in options) {
+            click = options.click;
         }
 
         elements = getWavesElements(elements);
@@ -578,6 +597,15 @@
             
             if (hover) {
                 element.addEventListener('mouseenter', hoverEffect, false);
+            }
+            
+            if (!click) {
+                
+                if (isTouchAvailable) {
+                    element.addEventListener('touchstart', disableClick, false);
+                }
+                
+                element.addEventListener('mousedown', disableClick, true);
             }
         }
     };

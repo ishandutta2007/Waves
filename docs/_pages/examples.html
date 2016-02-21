@@ -113,19 +113,29 @@
         <p>Makes the ripple when mouse hover the element.</p>
 
         <style>
-            #hover-button {
-                background: #04d654;
-                color: #fff;
+            .hover-button {
+                background: #04d654 !important;
+                color: #fff !important;
             }
         </style>
 
         <p class="text-center">
-            <button id="hover-button">Hover</button>
+            <button id="hover-click" class="hover-button">Hover with click</button>
+        </p>
+        
+        <p class="text-center">
+            <button id="hover-noclick" class="hover-button">Just hover</button>
         </p>
 
         <script type="text/javascript">
-            Waves.attach('#hover-button', {
-                classes: ['waves-button', 'waves-float'],
+            Waves.attach('#hover-click', {
+                classes: ['waves-button'],
+                hover: true
+            });
+            
+            Waves.attach('#hover-noclick', {
+                classes: ['waves-button'],
+                click: false,
                 hover: true
             });
         </script>
