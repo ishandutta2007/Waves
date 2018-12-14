@@ -21,3 +21,10 @@ Waves using [Situs](https://github.com/fians/situs) to generate documentation. H
 Waves created by [Alfiana Sibuea](http://fian.my.id), and released under [MIT license](https://github.com/fians/Waves/blob/master/LICENSE). 
 
 Copyright &copy; 2014-2016 Alfiana E. Sibuea. All rights reserved.
+
+### Support:
+
+If you want the good work to continue please support us on
+
+* [PAYPAL](https://www.paypal.me/ishandutta2007)
+* [BITCOIN ADDRESS: 3LZazKXG18Hxa3LLNAeKYZNtLzCxpv1LyD](https://www.coinbase.com/join/5a8e4a045b02c403bc3a9c0c)
